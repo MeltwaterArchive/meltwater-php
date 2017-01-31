@@ -4,11 +4,11 @@ All URIs are relative to *https://api.meltwater.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**postOauth2Token**](OauthApi.md#postOauth2Token) | **POST** /oauth2/token | Create an access token
+[**createToken**](OauthApi.md#createToken) | **POST** /oauth2/token | Create an access token
 
 
-# **postOauth2Token**
-> \Swagger\Client\Model\OAuth2Token postOauth2Token($user_key, $authorization, $grant_type, $scope)
+# **createToken**
+> \Swagger\Client\Model\OAuth2Token createToken($user_key, $authorization, $grant_type, $scope)
 
 Create an access token
 
@@ -26,10 +26,10 @@ $grant_type = "grant_type_example"; // string | OAuth2 grant type, use `client_c
 $scope = "scope_example"; // string | OAuth2 scope, use `search`
 
 try {
-    $result = $api_instance->postOauth2Token($user_key, $authorization, $grant_type, $scope);
+    $result = $api_instance->createToken($user_key, $authorization, $grant_type, $scope);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling OauthApi->postOauth2Token: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OauthApi->createToken: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

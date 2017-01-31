@@ -4,11 +4,11 @@ All URIs are relative to *https://api.meltwater.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getV1Searches**](SearchesApi.md#getV1Searches) | **GET** /v1/searches | List your saved searches.
+[**getAllSearches**](SearchesApi.md#getAllSearches) | **GET** /v1/searches | List your saved searches.
 
 
-# **getV1Searches**
-> \Swagger\Client\Model\SearchesCollection getV1Searches($user_key, $authorization)
+# **getAllSearches**
+> \Swagger\Client\Model\SearchesCollection getAllSearches($user_key, $authorization)
 
 List your saved searches.
 
@@ -24,10 +24,10 @@ $user_key = "user_key_example"; // string | The `user_key` from [developer.meltw
 $authorization = "authorization_example"; // string | `Oauth Access Token`    OAuth access token (RFC 6749). Must contain the access token type `Bearer`  followed by an OAuth access token.    #### Example:        Bearer KKwmfHwxsEoeMDTMAfxOpO...
 
 try {
-    $result = $api_instance->getV1Searches($user_key, $authorization);
+    $result = $api_instance->getAllSearches($user_key, $authorization);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SearchesApi->getV1Searches: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SearchesApi->getAllSearches: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
