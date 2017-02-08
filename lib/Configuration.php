@@ -102,7 +102,7 @@ class Configuration
      *
      * @var string
      */
-    protected $host = 'https://api.meltwater.io';
+    protected $host = 'https://api.meltwater.com';
 
     /**
      * Timeout (second) of the HTTP request, by default set to 0, no timeout

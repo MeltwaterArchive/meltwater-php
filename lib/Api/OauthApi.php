@@ -73,7 +73,7 @@ class OauthApi
     {
         if ($apiClient == null) {
             $apiClient = new ApiClient();
-            $apiClient->getConfig()->setHost('https://api.meltwater.io');
+            $apiClient->getConfig()->setHost('https://api.meltwater.com');
         }
 
         $this->apiClient = $apiClient;
@@ -107,7 +107,7 @@ class OauthApi
      *
      * Create an access token
      *
-     * @param string $user_key The &#x60;user_key&#x60; from [developer.meltwater.io](https://developer.meltwater.io/admin/applications/). (required)
+     * @param string $user_key The &#x60;user_key&#x60; from [developer.meltwater.com](https://developer.meltwater.com/admin/applications/). (required)
      * @param string $authorization &#x60;client_id:client_secret&#x60;  Basic Auth (RFC2617) credentials. Must contain the realm &#x60;Basic&#x60; followed by a Base64-encoded &#x60;client_id&#x60;:&#x60;client_secret&#x60; pair.   #### Example:      Basic aAlfbb1haWxDSXhhDXxxZWKJAyZXQ&#x3D; (required)
      * @param string $grant_type OAuth2 grant type, use &#x60;client_credentials&#x60; (required)
      * @param string $scope OAuth2 scope, use &#x60;search&#x60; (required)
@@ -125,7 +125,7 @@ class OauthApi
      *
      * Create an access token
      *
-     * @param string $user_key The &#x60;user_key&#x60; from [developer.meltwater.io](https://developer.meltwater.io/admin/applications/). (required)
+     * @param string $user_key The &#x60;user_key&#x60; from [developer.meltwater.com](https://developer.meltwater.com/admin/applications/). (required)
      * @param string $authorization &#x60;client_id:client_secret&#x60;  Basic Auth (RFC2617) credentials. Must contain the realm &#x60;Basic&#x60; followed by a Base64-encoded &#x60;client_id&#x60;:&#x60;client_secret&#x60; pair.   #### Example:      Basic aAlfbb1haWxDSXhhDXxxZWKJAyZXQ&#x3D; (required)
      * @param string $grant_type OAuth2 grant type, use &#x60;client_credentials&#x60; (required)
      * @param string $scope OAuth2 scope, use &#x60;search&#x60; (required)

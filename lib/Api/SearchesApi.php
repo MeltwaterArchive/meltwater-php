@@ -73,7 +73,7 @@ class SearchesApi
     {
         if ($apiClient == null) {
             $apiClient = new ApiClient();
-            $apiClient->getConfig()->setHost('https://api.meltwater.io');
+            $apiClient->getConfig()->setHost('https://api.meltwater.com');
         }
 
         $this->apiClient = $apiClient;
@@ -107,7 +107,7 @@ class SearchesApi
      *
      * List your saved searches.
      *
-     * @param string $user_key The &#x60;user_key&#x60; from [developer.meltwater.io](https://developer.meltwater.io/admin/applications/). (required)
+     * @param string $user_key The &#x60;user_key&#x60; from [developer.meltwater.com](https://developer.meltwater.com/admin/applications/). (required)
      * @param string $authorization &#x60;Oauth Access Token&#x60;    OAuth access token (RFC 6749). Must contain the access token type &#x60;Bearer&#x60;  followed by an OAuth access token.    #### Example:        Bearer KKwmfHwxsEoeMDTMAfxOpO... (required)
      * @return \Swagger\Client\Model\SearchesCollection
      * @throws \Swagger\Client\ApiException on non-2xx response
@@ -123,7 +123,7 @@ class SearchesApi
      *
      * List your saved searches.
      *
-     * @param string $user_key The &#x60;user_key&#x60; from [developer.meltwater.io](https://developer.meltwater.io/admin/applications/). (required)
+     * @param string $user_key The &#x60;user_key&#x60; from [developer.meltwater.com](https://developer.meltwater.com/admin/applications/). (required)
      * @param string $authorization &#x60;Oauth Access Token&#x60;    OAuth access token (RFC 6749). Must contain the access token type &#x60;Bearer&#x60;  followed by an OAuth access token.    #### Example:        Bearer KKwmfHwxsEoeMDTMAfxOpO... (required)
      * @return Array of \Swagger\Client\Model\SearchesCollection, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
