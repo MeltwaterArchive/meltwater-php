@@ -1,6 +1,6 @@
 <?php
 /**
- * SearchesApi
+ * Swagger_docApi
  * PHP version 5
  *
  * @category Class
@@ -34,14 +34,14 @@ use \Swagger\Client\Configuration;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * SearchesApi Class Doc Comment
+ * Swagger_docApi Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SearchesApi
+class Swagger_docApi
 {
     /**
      * API Client
@@ -79,7 +79,7 @@ class SearchesApi
      *
      * @param \Swagger\Client\ApiClient $apiClient set the API client
      *
-     * @return SearchesApi
+     * @return Swagger_docApi
      */
     public function setApiClient(\Swagger\Client\ApiClient $apiClient)
     {
@@ -88,43 +88,37 @@ class SearchesApi
     }
 
     /**
-     * Operation getAllSearches
+     * Operation getCompleteSwaggerSpec
      *
-     * List your saved searches.
+     * Meltwater API Swagger Spec
      *
      * @param string $user_key The &#x60;user_key&#x60; from [developer.meltwater.com](https://developer.meltwater.com/admin/applications/). (required)
-     * @param string $authorization &#x60;Oauth Access Token&#x60;    OAuth access token (RFC 6749). Must contain the access token type &#x60;Bearer&#x60;  followed by an OAuth access token.    #### Example:        Bearer KKwmfHwxsEoeMDTMAfxOpO... (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return \Swagger\Client\Model\SearchesCollection
+     * @return void
      */
-    public function getAllSearches($user_key, $authorization)
+    public function getCompleteSwaggerSpec($user_key)
     {
-        list($response) = $this->getAllSearchesWithHttpInfo($user_key, $authorization);
+        list($response) = $this->getCompleteSwaggerSpecWithHttpInfo($user_key);
         return $response;
     }
 
     /**
-     * Operation getAllSearchesWithHttpInfo
+     * Operation getCompleteSwaggerSpecWithHttpInfo
      *
-     * List your saved searches.
+     * Meltwater API Swagger Spec
      *
      * @param string $user_key The &#x60;user_key&#x60; from [developer.meltwater.com](https://developer.meltwater.com/admin/applications/). (required)
-     * @param string $authorization &#x60;Oauth Access Token&#x60;    OAuth access token (RFC 6749). Must contain the access token type &#x60;Bearer&#x60;  followed by an OAuth access token.    #### Example:        Bearer KKwmfHwxsEoeMDTMAfxOpO... (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of \Swagger\Client\Model\SearchesCollection, HTTP status code, HTTP response headers (array of strings)
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAllSearchesWithHttpInfo($user_key, $authorization)
+    public function getCompleteSwaggerSpecWithHttpInfo($user_key)
     {
         // verify the required parameter 'user_key' is set
         if ($user_key === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $user_key when calling getAllSearches');
-        }
-        // verify the required parameter 'authorization' is set
-        if ($authorization === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $authorization when calling getAllSearches');
+            throw new \InvalidArgumentException('Missing the required parameter $user_key when calling getCompleteSwaggerSpec');
         }
         // parse inputs
-        $resourcePath = "/v2/searches";
+        $resourcePath = "/v2/swagger_doc";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
@@ -138,10 +132,6 @@ class SearchesApi
         // header params
         if ($user_key !== null) {
             $headerParams['user-key'] = $this->apiClient->getSerializer()->toHeaderValue($user_key);
-        }
-        // header params
-        if ($authorization !== null) {
-            $headerParams['Authorization'] = $this->apiClient->getSerializer()->toHeaderValue($authorization);
         }
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
@@ -161,21 +151,13 @@ class SearchesApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\SearchesCollection',
-                '/v2/searches'
+                null,
+                '/v2/swagger_doc'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\SearchesCollection', $httpHeader), $statusCode, $httpHeader];
+            return [null, $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\SearchesCollection', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorsCollection', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
             }
 
             throw $e;

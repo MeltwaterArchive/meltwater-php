@@ -4,8 +4,8 @@ All URIs are relative to *https://api.meltwater.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createClientCredentials**](ClientsApi.md#createClientCredentials) | **POST** /v1/clients | Register new client
-[**deleteClientCredentials**](ClientsApi.md#deleteClientCredentials) | **DELETE** /v1/clients/{client_id} | Delete client.
+[**createClientCredentials**](ClientsApi.md#createClientCredentials) | **POST** /v2/clients | Register new client
+[**deleteClientCredentials**](ClientsApi.md#deleteClientCredentials) | **DELETE** /v2/clients/{client_id} | Delete client.
 
 
 # **createClientCredentials**
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 Register new client
 
-Register new client     Creates a new pair of client credentials (`client_id`/`client_secret` pair).  Requires your Meltwater credentials (`email`:`password`) to authenticate.   #### Appendix    The Base64-encoded `email`:`password` string can be generated in a terminal  with following command:        $ echo -n \"your_email@your_domain.com:your_secret_password\" | base64    <i>You will need `base64` installed.</i>
+Register new client             Creates a new pair of client credentials (`client_id`/`client_secret`          pair). Requires your Meltwater credentials (`email`:`password`)          to authenticate.           #### Appendix    The Base64-encoded `email`:`password` string can be generated in a terminal  with following command:        $ echo -n \"your_email@your_domain.com:your_secret_password\" | base64    <i>You will need `base64` installed.</i>
 
 ### Example
 ```php
@@ -60,7 +60,7 @@ No authorization required
 
 Delete client.
 
-Delete client.    Deletes your current client credentials consisting of  client_id and client_secret. After calling this resource, you will not be able  to use the Meltwater API unless you create a new set of client credentials!  Requires your Meltwater credentials (`email`:`password`) to authenticate.   #### Appendix    The Base64-encoded `email`:`password` string can be generated in a terminal  with following command:        $ echo -n \"your_email@your_domain.com:your_secret_password\" | base64    <i>You will need `base64` installed.</i>
+Delete client.    Deletes your current client credentials consisting                 of client_id and client_secret. After calling this resource,                  you will not be able to use the Meltwater API unless you create                  a new set of client credentials! Requires your Meltwater                  credentials (`email`:`password`) to authenticate.           #### Appendix    The Base64-encoded `email`:`password` string can be generated in a terminal  with following command:        $ echo -n \"your_email@your_domain.com:your_secret_password\" | base64    <i>You will need `base64` installed.</i>
 
 ### Example
 ```php
