@@ -1,10 +1,10 @@
-# Swagger\Client\OauthApi
+# Swagger\Client\Oauth2Api
 
 All URIs are relative to *https://api.meltwater.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createToken**](OauthApi.md#createToken) | **POST** /oauth2/token | Create an access token
+[**createToken**](Oauth2Api.md#createToken) | **POST** /oauth2/token | Create an access token
 
 
 # **createToken**
@@ -12,14 +12,14 @@ Method | HTTP request | Description
 
 Create an access token
 
-Create an OAuth2 access token based on the provided `client_id` and `client_secret`
+Create an OAuth2 access token based on the provided `client_id` and `client_secret`.  #### Appendix    The Base64-encoded `client_id`:`client_secret` string can be generated in a  terminal with following command:        $ echo -n \"your_client_id:your_client_secret\" | base64    <i>You will need `base64` installed.</i>
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Swagger\Client\Api\OauthApi();
+$api_instance = new Swagger\Client\Api\Oauth2Api();
 $user_key = "user_key_example"; // string | The `user_key` from [developer.meltwater.com](https://developer.meltwater.com/admin/applications/).
 $authorization = "authorization_example"; // string | `client_id:client_secret`  Basic Auth (RFC2617) credentials. Must contain the realm `Basic` followed by a Base64-encoded `client_id`:`client_secret` pair.   #### Example:      Basic aAlfbb1haWxDSXhhDXxxZWKJAyZXQ=
 $grant_type = "grant_type_example"; // string | OAuth2 grant type, use `client_credentials`
@@ -29,7 +29,7 @@ try {
     $result = $api_instance->createToken($user_key, $authorization, $grant_type, $scope);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling OauthApi->createToken: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling Oauth2Api->createToken: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

@@ -1,6 +1,6 @@
 <?php
 /**
- * ClientsApi
+ * SchemasApi
  * PHP version 5
  *
  * @category Class
@@ -34,14 +34,14 @@ use \Swagger\Client\Configuration;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * ClientsApi Class Doc Comment
+ * SchemasApi Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ClientsApi
+class SchemasApi
 {
     /**
      * API Client
@@ -79,7 +79,7 @@ class ClientsApi
      *
      * @param \Swagger\Client\ApiClient $apiClient set the API client
      *
-     * @return ClientsApi
+     * @return SchemasApi
      */
     public function setApiClient(\Swagger\Client\ApiClient $apiClient)
     {
@@ -88,140 +88,37 @@ class ClientsApi
     }
 
     /**
-     * Operation createClientCredentials
+     * Operation getEditorialStreamingJsonSchema
      *
-     * Register new client
-     *
-     * @param string $user_key The &#x60;user_key&#x60; from [developer.meltwater.com](https://developer.meltwater.com/admin/applications/). (required)
-     * @param string $authorization &#x60;email&#x60;:&#x60;password&#x60;    Basic Auth (RFC2617) credentials. Must contain the realm &#x60;Basic&#x60; followed by a  Base64-encoded &#x60;email&#x60;:&#x60;password&#x60; pair using your Meltwater credentials.    #### Example:        Basic bXlfZW1haWxAZXhhbXJzZWNyZXQ&#x3D; (required)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return \Swagger\Client\Model\ClientCredentials
-     */
-    public function createClientCredentials($user_key, $authorization)
-    {
-        list($response) = $this->createClientCredentialsWithHttpInfo($user_key, $authorization);
-        return $response;
-    }
-
-    /**
-     * Operation createClientCredentialsWithHttpInfo
-     *
-     * Register new client
+     * Editorial Streaming JSON schema
      *
      * @param string $user_key The &#x60;user_key&#x60; from [developer.meltwater.com](https://developer.meltwater.com/admin/applications/). (required)
-     * @param string $authorization &#x60;email&#x60;:&#x60;password&#x60;    Basic Auth (RFC2617) credentials. Must contain the realm &#x60;Basic&#x60; followed by a  Base64-encoded &#x60;email&#x60;:&#x60;password&#x60; pair using your Meltwater credentials.    #### Example:        Basic bXlfZW1haWxAZXhhbXJzZWNyZXQ&#x3D; (required)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of \Swagger\Client\Model\ClientCredentials, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function createClientCredentialsWithHttpInfo($user_key, $authorization)
-    {
-        // verify the required parameter 'user_key' is set
-        if ($user_key === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $user_key when calling createClientCredentials');
-        }
-        // verify the required parameter 'authorization' is set
-        if ($authorization === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $authorization when calling createClientCredentials');
-        }
-        // parse inputs
-        $resourcePath = "/v2/clients";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
-
-        // header params
-        if ($user_key !== null) {
-            $headerParams['user-key'] = $this->apiClient->getSerializer()->toHeaderValue($user_key);
-        }
-        // header params
-        if ($authorization !== null) {
-            $headerParams['Authorization'] = $this->apiClient->getSerializer()->toHeaderValue($authorization);
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Swagger\Client\Model\ClientCredentials',
-                '/v2/clients'
-            );
-
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\ClientCredentials', $httpHeader), $statusCode, $httpHeader];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ClientCredentials', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation deleteClientCredentials
-     *
-     * Delete client.
-     *
-     * @param string $user_key The &#x60;user_key&#x60; from [developer.meltwater.com](https://developer.meltwater.com/admin/applications/). (required)
-     * @param string $authorization &#x60;email&#x60;:&#x60;password&#x60;    Basic Auth (RFC2617) credentials. Must contain the realm &#x60;Basic&#x60; followed by a  Base64-encoded &#x60;email&#x60;:&#x60;password&#x60; pair using your Meltwater credentials.    #### Example:        Basic bXlfZW1haWxAZXhhbXJzZWNyZXQ&#x3D; (required)
-     * @param string $client_id Client ID (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return void
      */
-    public function deleteClientCredentials($user_key, $authorization, $client_id)
+    public function getEditorialStreamingJsonSchema($user_key)
     {
-        list($response) = $this->deleteClientCredentialsWithHttpInfo($user_key, $authorization, $client_id);
+        list($response) = $this->getEditorialStreamingJsonSchemaWithHttpInfo($user_key);
         return $response;
     }
 
     /**
-     * Operation deleteClientCredentialsWithHttpInfo
+     * Operation getEditorialStreamingJsonSchemaWithHttpInfo
      *
-     * Delete client.
+     * Editorial Streaming JSON schema
      *
      * @param string $user_key The &#x60;user_key&#x60; from [developer.meltwater.com](https://developer.meltwater.com/admin/applications/). (required)
-     * @param string $authorization &#x60;email&#x60;:&#x60;password&#x60;    Basic Auth (RFC2617) credentials. Must contain the realm &#x60;Basic&#x60; followed by a  Base64-encoded &#x60;email&#x60;:&#x60;password&#x60; pair using your Meltwater credentials.    #### Example:        Basic bXlfZW1haWxAZXhhbXJzZWNyZXQ&#x3D; (required)
-     * @param string $client_id Client ID (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteClientCredentialsWithHttpInfo($user_key, $authorization, $client_id)
+    public function getEditorialStreamingJsonSchemaWithHttpInfo($user_key)
     {
         // verify the required parameter 'user_key' is set
         if ($user_key === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $user_key when calling deleteClientCredentials');
-        }
-        // verify the required parameter 'authorization' is set
-        if ($authorization === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $authorization when calling deleteClientCredentials');
-        }
-        // verify the required parameter 'client_id' is set
-        if ($client_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $client_id when calling deleteClientCredentials');
+            throw new \InvalidArgumentException('Missing the required parameter $user_key when calling getEditorialStreamingJsonSchema');
         }
         // parse inputs
-        $resourcePath = "/v2/clients/{client_id}";
+        $resourcePath = "/v2/schemas/editorial_streaming.json";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
@@ -236,17 +133,82 @@ class ClientsApi
         if ($user_key !== null) {
             $headerParams['user-key'] = $this->apiClient->getSerializer()->toHeaderValue($user_key);
         }
-        // header params
-        if ($authorization !== null) {
-            $headerParams['Authorization'] = $this->apiClient->getSerializer()->toHeaderValue($authorization);
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
         }
-        // path params
-        if ($client_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "client_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($client_id),
-                $resourcePath
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                null,
+                '/v2/schemas/editorial_streaming.json'
             );
+
+            return [null, $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getSocialStreamingJsonSchema
+     *
+     * Social Streaming JSON schema
+     *
+     * @param string $user_key The &#x60;user_key&#x60; from [developer.meltwater.com](https://developer.meltwater.com/admin/applications/). (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return void
+     */
+    public function getSocialStreamingJsonSchema($user_key)
+    {
+        list($response) = $this->getSocialStreamingJsonSchemaWithHttpInfo($user_key);
+        return $response;
+    }
+
+    /**
+     * Operation getSocialStreamingJsonSchemaWithHttpInfo
+     *
+     * Social Streaming JSON schema
+     *
+     * @param string $user_key The &#x60;user_key&#x60; from [developer.meltwater.com](https://developer.meltwater.com/admin/applications/). (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSocialStreamingJsonSchemaWithHttpInfo($user_key)
+    {
+        // verify the required parameter 'user_key' is set
+        if ($user_key === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $user_key when calling getSocialStreamingJsonSchema');
+        }
+        // parse inputs
+        $resourcePath = "/v2/schemas/social_streaming.json";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+        // header params
+        if ($user_key !== null) {
+            $headerParams['user-key'] = $this->apiClient->getSerializer()->toHeaderValue($user_key);
         }
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
@@ -262,12 +224,12 @@ class ClientsApi
         try {
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath,
-                'DELETE',
+                'GET',
                 $queryParams,
                 $httpBody,
                 $headerParams,
                 null,
-                '/v2/clients/{client_id}'
+                '/v2/schemas/social_streaming.json'
             );
 
             return [null, $statusCode, $httpHeader];
